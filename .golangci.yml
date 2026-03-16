@@ -1,0 +1,76 @@
+version: "2"
+
+run:
+  timeout: 5m
+  issues-exit-code: 1
+
+linters:
+  enable:
+    # correctness
+    - errcheck
+    - govet
+    - staticcheck
+    - ineffassign
+
+    # bug prevention
+    - copyloopvar
+    - bodyclose
+    - exhaustive
+    - unparam
+    - unconvert
+
+    # code quality
+    # - gocyclo   # TODO: enable later, need to fix complexity issues
+    - goconst
+    - revive
+    - prealloc
+    - predeclared
+
+    # security
+    - gosec
+
+    # testing
+    - thelper
+    - tparallel
+
+    # misc
+    - misspell
+    - whitespace
+    - nolintlint
+    - dogsled
+
+  settings:
+    errcheck:
+      check-type-assertions: true
+
+    goconst:
+      min-len: 2
+      min-occurrences: 3
+
+    gocyclo:
+      min-complexity: 15
+
+    govet:
+      enable:
+        - shadow
+
+    revive:
+      severity: warning
+
+    nolintlint:
+      require-explanation: false
+      require-specific: true
+
+  exclusions:
+    rules:
+      # Ginkgo/Gomega test suites use dot-imports by convention; suppress the
+      # revive dot-imports warning for all test files.
+      - path: '_test\.go'
+        linters:
+          - revive
+        text: 'dot-imports'
+
+issues:
+  max-issues-per-linter: 0
+  max-same-issues: 0
+  fix: false
