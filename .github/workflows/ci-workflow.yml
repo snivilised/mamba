@@ -1,4 +1,4 @@
-name: Astrolib Continuous Integration
+name: Mamba Continuous Integration
 
 on:
   push:

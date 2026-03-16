@@ -1,12 +1,12 @@
-# 🌟 astrolib: ___Go template for library modules___
+# 🌟 mamba: ___Go template for library modules___
 
 [![A B](https://img.shields.io/badge/branching-commonflow-informational?style=flat)](https://commonflow.org)
 [![A B](https://img.shields.io/badge/merge-rebase-informational?style=flat)](https://git-scm.com/book/en/v2/Git-Branching-Rebasing)
 [![A B](https://img.shields.io/badge/branch%20history-linear-blue?style=flat)](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)
-[![Go Reference](https://pkg.go.dev/badge/github.com/snivilised/astrolib.svg)](https://pkg.go.dev/github.com/snivilised/astrolib)
-[![Go report](https://goreportcard.com/badge/github.com/snivilised/astrolib)](https://goreportcard.com/report/github.com/snivilised/astrolib)
-[![Coverage Status](https://coveralls.io/repos/github/snivilised/astrolib/badge.svg?branch=main)](https://coveralls.io/github/snivilised/astrolib?branch=main&kill_cache=1)
-[![Astrolib Continuous Integration](https://github.com/snivilised/astrolib/actions/workflows/ci-workflow.yml/badge.svg)](https://github.com/snivilised/astrolib/actions/workflows/ci-workflow.yml)
+[![Go Reference](https://pkg.go.dev/badge/github.com/snivilised/mamba.svg)](https://pkg.go.dev/github.com/snivilised/mamba)
+[![Go report](https://goreportcard.com/badge/github.com/snivilised/mamba)](https://goreportcard.com/report/github.com/snivilised/mamba)
+[![Coverage Status](https://coveralls.io/repos/github/snivilised/mamba/badge.svg?branch=main)](https://coveralls.io/github/snivilised/mamba?branch=main&kill_cache=1)
+[![Mamba Continuous Integration](https://github.com/snivilised/mamba/actions/workflows/ci-workflow.yml/badge.svg)](https://github.com/snivilised/mamba/actions/workflows/ci-workflow.yml)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 [![A B](https://img.shields.io/badge/commit-conventional-commits?style=flat)](https://www.conventionalcommits.org/)
 
@@ -53,9 +53,9 @@ By using this template, there is no need to use the cobra-cli to scaffold your a
 
 ### 📝 Checklist of required changes
 
-The following is list of actions that must be performed before using this template. Most of the changes concern changing the name `astrolib` to the name of the new application. As the template is instantiated from github, the new name will automatically replace the top level directory name, that being ___astrolib___.
+The following is list of actions that must be performed before using this template. Most of the changes concern changing the name `mamba` to the name of the new application. As the template is instantiated from github, the new name will automatically replace the top level directory name, that being ___mamba___.
 
-➕ The following descriptions use owner name ___pandora___ and repo name ___maestro___ as an example. That is to say the client has instantiated ___astrolib___ template into github at url _github.com/pandora/maestro_
+➕ The following descriptions use owner name ___pandora___ and repo name ___maestro___ as an example. That is to say the client has instantiated ___mamba___ template into github at url _github.com/pandora/maestro_
 
 #### 🤖 Automated changes
 
@@ -63,28 +63,28 @@ Automated via `automate-checklist.sh` script. When the user instantiates the rep
 
 ##### ✅ Rename import statements
 
-+ `rename import paths`: global search and replace ___snivilised/astrolib___ to ___pandora/maestro___
++ `rename import paths`: global search and replace ___snivilised/mamba___ to ___pandora/maestro___
 
 ##### ✅ Identifiers
 
-+ `change astrolibTemplData`: perform a refactor rename (_Rename Symbol_) to ___maestroTemplData___
++ `change mambaTemplData`: perform a refactor rename (_Rename Symbol_) to ___maestroTemplData___
 
-##### ✅ Global search replace astrolib to maestro
+##### ✅ Global search replace mamba to maestro
 
 Will take care of the following required changes:
 
 + `change module name`: update the module name inside the .mod file in the root directory
 + `change ApplicationName`: modify to reflect the new application name. This application name is incorporated into the name of any translation files to be loaded.
 + `update BINARY_NAME`: Inside _Taskfile.yml_, change the value of ___BINARY_NAME___ to the name of the client application.
-+ `update github action workflows`: change the name of the workflows in the .yaml files to replace ___astrolib___ to ___Maestro___ (note the change of case, if this is important).
++ `update github action workflows`: change the name of the workflows in the .yaml files to replace ___mamba___ to ___Maestro___ (note the change of case, if this is important).
 
 ##### ✅ Localisation/Internationalisation
 
-+ `change the names of the translation files`: eg change ___astrolib.active.en-GB.json___ to ___maestro.active.en-GB.json___
++ `change the names of the translation files`: eg change ___mamba.active.en-GB.json___ to ___maestro.active.en-GB.json___
 
 ##### ✅ Miscellaneous automated changes
 
-+ `reset version files`: this is optional because the release process automatically updates the version number according to the tag specified by the user, but will initially contain the version number which reflects the current value of astrolib at the time the client project is instantiated.
++ `reset version files`: this is optional because the release process automatically updates the version number according to the tag specified by the user, but will initially contain the version number which reflects the current value of mamba at the time the client project is instantiated.
 + `change SOURCE_ID`: to "github.com/pandora/maestro"
 
 #### 🖐 Manual changes
@@ -125,7 +125,7 @@ Of course, its up to the user what settings they use in their repo, these are ju
 
 ### 🌐 l10n Translations
 
-This template has been setup to support localisation. The default language is `en-GB` with support for `en-US`. There is a translation file for `en-US` defined as __src/i18n/deploy/astrolib.active.en-US.json__. This is the initial translation for `en-US` that should be deployed with the app.
+This template has been setup to support localisation. The default language is `en-GB` with support for `en-US`. There is a translation file for `en-US` defined as __src/i18n/deploy/mamba.active.en-US.json__. This is the initial translation for `en-US` that should be deployed with the app.
 
 Make sure that the go-i18n package has been installed so that it can be invoked as cli, see [go-i18n](https://github.com/nicksnyder/go-i18n) for installation instructions.
 
