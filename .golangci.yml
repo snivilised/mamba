@@ -69,8 +69,6 @@ linters:
         linters:
           - revive
         text: 'dot-imports'
-      # errcheck: We need to temporarily disable checking of auto generated
-      # code, until the new generator has been created
       - path: '-auto\.go'
         linters:
           - errcheck

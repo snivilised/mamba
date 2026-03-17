@@ -146,6 +146,12 @@ tasks:
       - go tool cover -html=./coverage.out -o {{.COVER_HTML_PATH}}
       - open {{.COVER_HTML_PATH}}
 
+  # === ps-gen (param set generator) =========================
+
+  ps-gen:
+    cmds:
+      - go run ./cmd/ps-gen/main.go
+
   # === i18n =================================================
 
   clear:
