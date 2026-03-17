@@ -20,7 +20,7 @@ linters:
     - unconvert
 
     # code quality
-    # - gocyclo   # TODO: enable later, need to fix complexity issues
+    - gocyclo
     - goconst
     - revive
     - prealloc
@@ -69,6 +69,11 @@ linters:
         linters:
           - revive
         text: 'dot-imports'
+      # errcheck: We need to temporarily disable checking of auto generated
+      # code, until the new generator has been created
+      - path: '-auto\.go'
+        linters:
+          - errcheck
 
 issues:
   max-issues-per-linter: 0

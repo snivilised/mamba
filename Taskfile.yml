@@ -52,6 +52,10 @@ tasks:
     cmds:
       - ginkgo -v --dry-run ./...
 
+  u:
+    cmds:
+      - ginkgo unfocus
+
   # === ginkgo ================================================
 
   # initialise a test suite for a package. (only 1 per package)

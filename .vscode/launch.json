@@ -5,6 +5,14 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Debug Ginkgo",
+      "type": "go",
+      "request": "launch",
+      "mode": "test",
+      "program": "${fileDirname}",
+      "args": ["-ginkgo.v"]
+    },
+    {
       "name": "Launch Package",
       "type": "go",
       "request": "launch",
