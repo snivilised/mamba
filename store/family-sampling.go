@@ -9,10 +9,10 @@ import (
 
 type SamplingParameterSet struct {
 	ParameterSetWithOverrides
-	IsSampling bool
-	NoFiles    uint
-	NoFolders  uint
-	Last       bool
+	IsSampling    bool
+	NoFiles       uint
+	NoDirectories uint
+	Last          bool
 }
 
 func (f *SamplingParameterSet) BindAll(
@@ -53,16 +53,16 @@ func (f *SamplingParameterSet) BindAll(
 		&parent.Native.NoFiles,
 	)
 
-	// --no-folders
+	// --no-dirs
 	//
 	parent.BindUint(
 		resolveNewFlagInfo(
-			li18ngo.Text(locale.SamplingNoFoldersUsageTemplData{}),
+			li18ngo.Text(locale.SamplingNoDirectoriesUsageTemplData{}),
 			defFSItems,
 			f.Overrides,
 			flagSet...,
 		),
-		&parent.Native.NoFolders,
+		&parent.Native.NoDirectories,
 	)
 
 	const (

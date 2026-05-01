@@ -106,9 +106,9 @@ var _ = Describe("Families", Ordered, func() {
 					}
 				}
 
-			case "folders":
+			case "directories":
 				{
-					ps := assist.NewParamSet[store.FoldersFilterParameterSet](rootCommand)
+					ps := assist.NewParamSet[store.DirectoriesFilterParameterSet](rootCommand)
 					if entry.persistent {
 						ps.Native.BindAll(ps, rootCommand.PersistentFlags())
 					} else {
@@ -168,38 +168,38 @@ var _ = Describe("Families", Ordered, func() {
 				commandLine: []string{"-x", "^foo"},
 			},
 		),
-		// folders glob
+		// directories glob
 		Entry(
 			nil,
 			&familyTE{
-				given:       "--folders-glob; long form glob(folders)",
-				familyType:  "folders",
-				commandLine: []string{"--folders-glob", "bar*"},
+				given:       "--dirs-glob; long form glob(directories)",
+				familyType:  "directories",
+				commandLine: []string{"--dirs-glob", "bar*"},
 			},
 		),
 		Entry(
 			nil,
 			&familyTE{
-				given:       "-g; short form glob(folders)",
-				familyType:  "folders",
+				given:       "-g; short form glob(directories)",
+				familyType:  "directories",
 				persistent:  true,
 				commandLine: []string{"-g", "bar*"},
 			},
 		),
-		// folders regex
+		// directories regex
 		Entry(
 			nil,
 			&familyTE{
-				given:       "--folders-regex; long form regex(folders)",
-				familyType:  "folders",
-				commandLine: []string{"--folders-regex", "^bar"},
+				given:       "--dirs-regex; long form regex(directories)",
+				familyType:  "directories",
+				commandLine: []string{"--dirs-regex", "^bar"},
 			},
 		),
 		Entry(
 			nil,
 			&familyTE{
-				given:       "-y; short form regex(folders)",
-				familyType:  "folders",
+				given:       "-y; short form regex(directories)",
+				familyType:  "directories",
 				persistent:  true,
 				commandLine: []string{"-y", "^bar"},
 			},
@@ -208,15 +208,15 @@ var _ = Describe("Families", Ordered, func() {
 		Entry(
 			nil,
 			&familyTE{
-				given:       "--files --folders-glob; long form ex-glob(files), glob(folders)",
+				given:       "--files --dirs-glob; long form ex-glob(files), glob(directories)",
 				familyType:  "poly",
-				commandLine: []string{"--files", "foo*", "--folders-glob", "bar*"},
+				commandLine: []string{"--files", "foo*", "--dirs-glob", "bar*"},
 			},
 		),
 		Entry(
 			nil,
 			&familyTE{
-				given:       "-f -g; short form ex-glob(files), glob(folders)",
+				given:       "-f -g; short form ex-glob(files), glob(directories)",
 				familyType:  "poly",
 				commandLine: []string{"-f", "foo*", "-g", "bar*"},
 			},
@@ -224,16 +224,16 @@ var _ = Describe("Families", Ordered, func() {
 		Entry(
 			nil,
 			&familyTE{
-				given:       "--files --folders-regex; long form ex-glob(files), regex(folders)",
+				given:       "--files --dirs-regex; long form ex-glob(files), regex(directories)",
 				familyType:  "poly",
 				persistent:  true,
-				commandLine: []string{"--files", "foo*", "--folders-regex", "^bar"},
+				commandLine: []string{"--files", "foo*", "--dirs-regex", "^bar"},
 			},
 		),
 		Entry(
 			nil,
 			&familyTE{
-				given:       "-f -g; short form ex-glob(files), glob(folders)",
+				given:       "-f -g; short form ex-glob(files), glob(directories)",
 				familyType:  "poly",
 				persistent:  true,
 				commandLine: []string{"-f", "foo*", "-g", "^bar"},
@@ -260,16 +260,16 @@ var _ = Describe("Families", Ordered, func() {
 		Entry(
 			nil,
 			&familyTE{
-				given:       "--folders-glob; long form glob(folders)",
+				given:       "--dirs-glob; long form glob(directories)",
 				familyType:  "alloy",
 				persistent:  true,
-				commandLine: []string{"--folders-glob", "foo*"},
+				commandLine: []string{"--dirs-glob", "foo*"},
 			},
 		),
 		Entry(
 			nil,
 			&familyTE{
-				given:       "-g; short form glob(folders)",
+				given:       "-g; short form glob(directories)",
 				familyType:  "alloy",
 				commandLine: []string{"-g", "foo*"},
 			},
@@ -517,8 +517,8 @@ var _ = Describe("Families", Ordered, func() {
 		Entry(
 			nil,
 			&familyTE{
-				given:       "--no-folders",
-				commandLine: []string{"--no-folders", "5"},
+				given:       "--no-dirs",
+				commandLine: []string{"--no-dirs", "5"},
 				persistent:  true,
 			},
 		),
