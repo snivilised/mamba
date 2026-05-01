@@ -25,11 +25,11 @@ var (
 	// filter is a very useful feature, it is being established as
 	// the default, hence the name just 'files'.
 	filterFlags = assist.FlagDefinitions{
-		"files":         "f",
-		"files-glob":    "b",
-		"files-regex":   "x",
-		"folders-glob":  "g",
-		"folders-regex": "y",
+		"files":       "f",
+		"files-glob":  "b",
+		"files-regex": "x",
+		"dirs-glob":   "g",
+		"dirs-regex":  "y",
 	}
 
 	profileFlags = assist.FlagDefinitions{
@@ -47,10 +47,10 @@ var (
 	}
 
 	samplingFlags = assist.FlagDefinitions{
-		"sample":     "",
-		"no-files":   "",
-		"no-folders": "",
-		"last":       "",
+		"sample":   "",
+		"no-files": "",
+		"no-dirs":  "",
+		"last":     "",
 	}
 
 	interactionFlags = assist.FlagDefinitions{

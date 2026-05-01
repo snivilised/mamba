@@ -46,45 +46,45 @@ func (td FilesExGlobParamUsageTemplData) Message() *i18n.Message {
 	}
 }
 
-// FoldersExGlobParamUsageTemplData
+// DirectoriesExGlobParamUsageTemplData
 // 🧊
-type FoldersExGlobParamUsageTemplData struct {
+type DirectoriesExGlobParamUsageTemplData struct {
 	mambaTemplData
 }
 
-func (td FoldersExGlobParamUsageTemplData) Message() *i18n.Message {
+func (td DirectoriesExGlobParamUsageTemplData) Message() *i18n.Message {
 	return &i18n.Message{
-		ID:          "folders-ex-glob-filter.param-usage",
-		Description: "folders extended glob filter (negate-able with leading !)",
-		Other:       "folders extended glob filter: <glob> (negate-able with leading !)",
+		ID:          "directories-ex-glob-filter.param-usage",
+		Description: "directories extended glob filter (negate-able with leading !)",
+		Other:       "directories extended glob filter: <glob> (negate-able with leading !)",
 	}
 }
 
-// FoldersGlobParamUsageTemplData
+// DirectoriesGlobParamUsageTemplData
 // 🧊
-type FoldersGlobParamUsageTemplData struct {
+type DirectoriesGlobParamUsageTemplData struct {
 	mambaTemplData
 }
 
-func (td FoldersGlobParamUsageTemplData) Message() *i18n.Message {
+func (td DirectoriesGlobParamUsageTemplData) Message() *i18n.Message {
 	return &i18n.Message{
-		ID:          "folders-glob-filter.param-usage",
-		Description: "folders glob (negate-able with leading !)",
-		Other:       "folders-glob folder glob filter (negate-able with leading !)",
+		ID:          "dirs-glob-filter.param-usage",
+		Description: "directories glob (negate-able with leading !)",
+		Other:       "dirs-glob folder glob filter (negate-able with leading !)",
 	}
 }
 
-// FoldersRexExParamUsageTemplData
+// DirectoriesRexExParamUsageTemplData
 // 🧊
-type FoldersRexExParamUsageTemplData struct {
+type DirectoriesRexExParamUsageTemplData struct {
 	mambaTemplData
 }
 
-func (td FoldersRexExParamUsageTemplData) Message() *i18n.Message {
+func (td DirectoriesRexExParamUsageTemplData) Message() *i18n.Message {
 	return &i18n.Message{
-		ID:          "folders-regex-filter.param-usage",
-		Description: "folders regex filter (negate-able with leading !)",
-		Other:       "folders-regex folder regular expression filter (negate-able with leading !)",
+		ID:          "dirs-regex-filter.param-usage",
+		Description: "directories regex filter (negate-able with leading !)",
+		Other:       "dirs-regex folder regular expression filter (negate-able with leading !)",
 	}
 }
 
@@ -228,17 +228,17 @@ func (td SamplingNoFilesUsageTemplData) Message() *i18n.Message {
 	}
 }
 
-// SamplingNoFoldersUsageTemplData
+// SamplingNoDirectoriesUsageTemplData
 // 🧊
-type SamplingNoFoldersUsageTemplData struct {
+type SamplingNoDirectoriesUsageTemplData struct {
 	mambaTemplData
 }
 
-func (td SamplingNoFoldersUsageTemplData) Message() *i18n.Message {
+func (td SamplingNoDirectoriesUsageTemplData) Message() *i18n.Message {
 	return &i18n.Message{
-		ID:          "sampling-no-folders.param-usage",
-		Description: "sampling folders usage; no of folders in sample set",
-		Other:       "no-folders specifies the number of folders to sample",
+		ID:          "sampling-no-dirs.param-usage",
+		Description: "sampling directories usage; no of directories in sample set",
+		Other:       "no-dirs specifies the number of directories to sample",
 	}
 }
 

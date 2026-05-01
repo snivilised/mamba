@@ -21,7 +21,7 @@ const (
 // scenarios would be to either filter files, directories or both
 // by using an 'any' scope. With this compromise, the user would
 // always have to spell the compound file filter in it full form:
-// --files-regex or --files-glob. When using traverse nav, the folders
+// --files-regex or --files-glob. When using traverse nav, the directories
 // with files subscription would have to be used, ie there is no
 // standalone file file, so --files-regex and --files-glob are both free
 // to use without ambiguity.
@@ -38,7 +38,7 @@ type FilesFilterParameterSet struct {
 	ParameterSetWithOverrides
 	Files      string
 	FilesGlob  string
-	FilesRexEx string
+	FilesRegEx string
 }
 
 func (f *FilesFilterParameterSet) BindAll(
@@ -78,63 +78,63 @@ func (f *FilesFilterParameterSet) BindAll(
 			f.Overrides,
 			flagSet...,
 		),
-		&parent.Native.FilesRexEx,
+		&parent.Native.FilesRegEx,
 	)
 
 	parent.Command.MarkFlagsMutuallyExclusive("files", "files-glob", "files-regex")
 }
 
-// FoldersFilterParameterSet represents a family of parameters that can be used
-// to accept a folder filter. In contrast to files, the folders family does
-// not include an extended glob because folders do not contain extensions,
+// DirectoriesFilterParameterSet represents a family of parameters that can be used
+// to accept a folder filter. In contrast to files, the directories family does
+// not include an extended glob because directories do not contain extensions,
 // so the regular glob will suffice.
-type FoldersFilterParameterSet struct {
+type DirectoriesFilterParameterSet struct {
 	ParameterSetWithOverrides
-	FoldersGlob  string
-	FoldersRexEx string
+	DirectoriesGlob  string
+	DirectoriesRegEx string
 }
 
-func (f *FoldersFilterParameterSet) BindAll(
-	parent *assist.ParamSet[FoldersFilterParameterSet],
+func (f *DirectoriesFilterParameterSet) BindAll(
+	parent *assist.ParamSet[DirectoriesFilterParameterSet],
 	flagSet ...*pflag.FlagSet,
 ) {
-	// --folders-glob(g)
+	// --dirs-glob(g)
 	//
 	parent.BindString(
 		resolveNewFlagInfo(
-			li18ngo.Text(locale.FoldersGlobParamUsageTemplData{}),
+			li18ngo.Text(locale.DirectoriesGlobParamUsageTemplData{}),
 			defaultFilterValue,
 			f.Overrides,
 			flagSet...,
 		),
-		&parent.Native.FoldersGlob,
+		&parent.Native.DirectoriesGlob,
 	)
 
-	// --folders-regex(y)
+	// --dirs-regex(y)
 	//
 	parent.BindString(
 		resolveNewFlagInfo(
-			li18ngo.Text(locale.FoldersRexExParamUsageTemplData{}),
+			li18ngo.Text(locale.DirectoriesRexExParamUsageTemplData{}),
 			defaultFilterValue,
 			f.Overrides,
 			flagSet...,
 		),
-		&parent.Native.FoldersRexEx,
+		&parent.Native.DirectoriesRegEx,
 	)
 
-	parent.Command.MarkFlagsMutuallyExclusive("folders-glob", "folders-regex")
+	parent.Command.MarkFlagsMutuallyExclusive("dirs-glob", "dirs-regex")
 }
 
 // PolyFilterParameterSet represents a family of parameters that can be used
 // to accept file and folder filters. This family is composed of files and
 // filters. For files, either an extended glob or regex is supported. For
-// folders, either a regular glob or regex is supported.
+// directories, either a regular glob or regex is supported.
 type PolyFilterParameterSet struct {
 	ParameterSetWithOverrides
-	FilesExGlob  string
-	FilesRexEx   string
-	FoldersGlob  string
-	FoldersRexEx string
+	FilesExGlob      string
+	FilesRegEx       string
+	DirectoriesGlob  string
+	DirectoriesRegEx string
 }
 
 func (f *PolyFilterParameterSet) BindAll(
@@ -162,44 +162,44 @@ func (f *PolyFilterParameterSet) BindAll(
 			f.Overrides,
 			flagSet...,
 		),
-		&parent.Native.FilesRexEx,
+		&parent.Native.FilesRegEx,
 	)
 
-	// --folders-glob(g)
+	// --dirs-glob(g)
 	//
 	parent.BindString(
 		resolveNewFlagInfo(
-			li18ngo.Text(locale.FoldersGlobParamUsageTemplData{}),
+			li18ngo.Text(locale.DirectoriesGlobParamUsageTemplData{}),
 			defaultFilterValue,
 			f.Overrides,
 			flagSet...,
 		),
-		&parent.Native.FoldersGlob,
+		&parent.Native.DirectoriesGlob,
 	)
 
-	// --folders-regex(y)
+	// --dirs-regex(y)
 	//
 	parent.BindString(
 		resolveNewFlagInfo(
-			li18ngo.Text(locale.FoldersRexExParamUsageTemplData{}),
+			li18ngo.Text(locale.DirectoriesRexExParamUsageTemplData{}),
 			defaultFilterValue,
 			f.Overrides,
 			flagSet...,
 		),
-		&parent.Native.FoldersRexEx,
+		&parent.Native.DirectoriesRegEx,
 	)
 
 	parent.Command.MarkFlagsMutuallyExclusive("files", "files-regex")
-	parent.Command.MarkFlagsMutuallyExclusive("folders-glob", "folders-regex")
+	parent.Command.MarkFlagsMutuallyExclusive("dirs-glob", "dirs-regex")
 }
 
 // AlloyFilterParameterSet represents a family of parameters that can be used
 // to accept file and folder filters. Files are represented by an extended glob
-// and folders by a regular glob.
+// and directories by a regular glob.
 type AlloyFilterParameterSet struct {
 	ParameterSetWithOverrides
-	FilesExGlob string
-	FoldersGlob string
+	FilesExGlob     string
+	DirectoriesGlob string
 }
 
 func (f *AlloyFilterParameterSet) BindAll(
@@ -218,15 +218,15 @@ func (f *AlloyFilterParameterSet) BindAll(
 		&parent.Native.FilesExGlob,
 	)
 
-	// --folders-glob(g)
+	// --dirs-glob(g)
 	//
 	parent.BindString(
 		resolveNewFlagInfo(
-			li18ngo.Text(locale.FoldersGlobParamUsageTemplData{}),
+			li18ngo.Text(locale.DirectoriesGlobParamUsageTemplData{}),
 			defaultFilterValue,
 			f.Overrides,
 			flagSet...,
 		),
-		&parent.Native.FoldersGlob,
+		&parent.Native.DirectoriesGlob,
 	)
 }
