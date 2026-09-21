@@ -5,7 +5,7 @@ go 1.26.0
 require (
 	github.com/nicksnyder/go-i18n/v2 v2.6.1
 	github.com/onsi/ginkgo/v2 v2.31.0
-	github.com/onsi/gomega v1.42.0
+	github.com/onsi/gomega v1.43.1
 	github.com/snivilised/li18ngo v0.1.15
 	github.com/spf13/pflag v1.0.10
 	github.com/spf13/viper v1.21.0
@@ -21,7 +21,6 @@ require (
 	github.com/spf13/afero v1.15.0 // indirect
 	github.com/spf13/cast v1.10.0 // indirect
 	github.com/subosito/gotenv v1.6.0 // indirect
-	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
 )
 
 require (
@@ -33,7 +32,7 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/snivilised/nefilim v0.1.14 // indirect
 	github.com/spf13/cobra v1.10.2
-	go.yaml.in/yaml/v3 v3.0.4 // indirect
+	go.yaml.in/yaml/v3 v3.0.5 // indirect
 	golang.org/x/exp v0.0.0-20260611194520-c48552f49976
 	golang.org/x/mod v0.37.0 // indirect
 	golang.org/x/net v0.56.0 // indirect
